@@ -1,4 +1,4 @@
-package edu.kis.powp.jobs2d.drivers.adapter;
+package edu.kis.powp.jobs2d.drivers.adapters;
 
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.ILine;
