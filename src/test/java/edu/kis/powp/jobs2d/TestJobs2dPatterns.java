@@ -5,11 +5,12 @@ import java.awt.event.ActionEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
+import edu.kis.legacy.drawer.shape.ILine;
+import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.DrawerAdapter;
-import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
+import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
@@ -47,20 +48,14 @@ public class TestJobs2dPatterns {
 		DriverFeature.addDriver("Buggy Simulator", testDriver);
 
 		DriverFeature.updateDriverInfo();
-	}
 
-	/**
-	 * Auxiliary routines to enable using Buggy Simulator.
-	 * 
-	 * @param application Application context.
-	 */
-	private static void setupDefaultDrawerVisibilityManagement(Application application) {
-		DefaultDrawerFrame defaultDrawerWindow = DefaultDrawerFrame.getDefaultDrawerFrame();
-		application.addComponentMenuElementWithCheckBox(DrawPanelController.class, "Default Drawer Visibility",
-				new SelectChangeVisibleOptionListener(defaultDrawerWindow), true);
-		defaultDrawerWindow.setVisible(true);
-	}
+		DrawPanelController drawPanelController = DrawerFeature.getDrawerController();
 
+		ILine basicLine = LineFactory.getBasicLine();
+		Job2dDriver basicLineDriver = new LineDrawerAdapter(drawPanelController, basicLine);
+		DriverFeature.addDriver("BasicLine Driver", basicLineDriver);
+	}
+	
 	/**
 	 * Setup menu for adjusting logging settings.
 	 * 
