@@ -1,6 +1,6 @@
 package edu.kis.powp.jobs2d;
 
-import java.awt.EventQueue;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,6 +12,7 @@ import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.DriverManager;
 import edu.kis.powp.jobs2d.drivers.adapters.DrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapters.LineDrawerAdapter;
+import edu.kis.powp.jobs2d.drivers.lines.LineColorEditor;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
@@ -48,17 +49,21 @@ public class TestJobs2dPatterns {
 		Job2dDriver loggerDriver = new LoggerDriver();
 		DriverFeature.addDriver("Logger Driver", loggerDriver);
 		DriverFeature.getDriverManager().setCurrentDriver(loggerDriver);
-
-		Job2dDriver testDriver = new DrawerAdapter();
-		DriverFeature.addDriver("Buggy Simulator", testDriver);
-
-		DriverFeature.updateDriverInfo();
-
 		DrawPanelController drawPanelController = DrawerFeature.getDrawerController();
 
-		ILine basicLine = LineFactory.getBasicLine();
+		Job2dDriver testDriver = new DrawerAdapter(drawPanelController);
+		DriverFeature.addDriver("Draw Panel", testDriver);
+
+		ILine basicLine = LineFactory.getSpecialLine();
 		Job2dDriver basicLineDriver = new LineDrawerAdapter(drawPanelController, basicLine);
 		DriverFeature.addDriver("BasicLine Driver", basicLineDriver);
+		DriverFeature.updateDriverInfo();
+
+		ILine basicBlueLine = new LineColorEditor(basicLine, Color.BLUE);
+		Job2dDriver basicBlueLineDriver = new LineDrawerAdapter(drawPanelController, basicBlueLine);
+		DriverFeature.addDriver("BasicBlueLine Driver", basicBlueLineDriver);
+
+		DriverFeature.updateDriverInfo();
 	}
 	
 	/**
