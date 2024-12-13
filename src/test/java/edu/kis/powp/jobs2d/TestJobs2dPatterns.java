@@ -9,6 +9,7 @@ import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.ILine;
 import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
+import edu.kis.powp.jobs2d.drivers.DriverManager;
 import edu.kis.powp.jobs2d.drivers.adapters.DrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapters.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
