@@ -12,6 +12,7 @@ import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapters.DrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapters.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.lines.LineColorEditor;
+import edu.kis.powp.jobs2d.enums.TestType;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
@@ -26,22 +27,22 @@ public class TestJobs2dPatterns {
 	 */
 	private static void setupPresetTests(Application application) {
 		SelectTestFigureOptionListener selectTestFigure1OptionListener = new SelectTestFigureOptionListener(
-				DriverFeature.getDriverManager(), 1);
+				DriverFeature.getDriverManager(), TestType.JOE_FIGURE_SCRIPT_1);
 
 		SelectTestFigureOptionListener selectTestFigure2OptionListener = new SelectTestFigureOptionListener(
-				DriverFeature.getDriverManager(), 2);
+				DriverFeature.getDriverManager(), TestType.JOE_FIGURE_SCRIPT_2);
 
 		SelectTestFigureOptionListener selectTestFigure3OptionListener = new SelectTestFigureOptionListener(
-				DriverFeature.getDriverManager(), 3);
+				DriverFeature.getDriverManager(), TestType.JANE_FIGURE_SCRIPT_1);
 
 		SelectTestFigureOptionListener selectTestFigure4OptionListener = new SelectTestFigureOptionListener(
-				DriverFeature.getDriverManager(), 4);
+				DriverFeature.getDriverManager(), TestType.SQUARE);
 
 		SelectTestFigureOptionListener selectTestFigure5OptionListener = new SelectTestFigureOptionListener(
-				DriverFeature.getDriverManager(), 5);
+				DriverFeature.getDriverManager(), TestType.RECTANGLE);
 
 		SelectTestFigureOptionListener selectTestFigure6OptionListener = new SelectTestFigureOptionListener(
-				DriverFeature.getDriverManager(), 6);
+				DriverFeature.getDriverManager(), TestType.TRIANGLE);
 
 		application.addTest("Figure Joe 1", selectTestFigure1OptionListener);
 		application.addTest("Figure Joe 2", selectTestFigure2OptionListener);
