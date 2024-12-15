@@ -10,6 +10,7 @@ public class ComplexCommandFactory {
         squareCommand.addCommand(new OperateToCommand(x, y, driver));
         return squareCommand;
     }
+
     public static DriverCommand createRectangle(int x, int y, int width, int height, Job2dDriver driver) {
         ComplexCommand rectangleCommand = new ComplexCommand();
         rectangleCommand.addCommand(new SetPositionCommand(x, y, driver));
@@ -19,6 +20,7 @@ public class ComplexCommandFactory {
         rectangleCommand.addCommand(new OperateToCommand(x, y, driver));
         return rectangleCommand;
     }
+
     public static DriverCommand createTriangle(int x1, int y1, int x2, int y2, int x3, int y3, Job2dDriver driver) {
         ComplexCommand triangleCommand = new ComplexCommand();
         triangleCommand.addCommand(new SetPositionCommand(x1, y1, driver));
@@ -27,3 +29,5 @@ public class ComplexCommandFactory {
         triangleCommand.addCommand(new OperateToCommand(x1, y1, driver));
         return triangleCommand;
     }
+
+}
