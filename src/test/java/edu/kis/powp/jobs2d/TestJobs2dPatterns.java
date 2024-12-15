@@ -9,7 +9,6 @@ import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.ILine;
 import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
-import edu.kis.powp.jobs2d.drivers.DriverManager;
 import edu.kis.powp.jobs2d.drivers.adapters.DrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapters.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.drivers.lines.LineColorEditor;
@@ -35,9 +34,21 @@ public class TestJobs2dPatterns {
 		SelectTestFigureOptionListener selectTestFigure3OptionListener = new SelectTestFigureOptionListener(
 				DriverFeature.getDriverManager(), 3);
 
+		SelectTestFigureOptionListener selectTestFigure4OptionListener = new SelectTestFigureOptionListener(
+				DriverFeature.getDriverManager(), 4);
+
+		SelectTestFigureOptionListener selectTestFigure5OptionListener = new SelectTestFigureOptionListener(
+				DriverFeature.getDriverManager(), 5);
+
+		SelectTestFigureOptionListener selectTestFigure6OptionListener = new SelectTestFigureOptionListener(
+				DriverFeature.getDriverManager(), 6);
+
 		application.addTest("Figure Joe 1", selectTestFigure1OptionListener);
 		application.addTest("Figure Joe 2", selectTestFigure2OptionListener);
 		application.addTest("Figure Jane 1", selectTestFigure3OptionListener);
+		application.addTest("Square", selectTestFigure4OptionListener);
+		application.addTest("Rectangle", selectTestFigure5OptionListener);
+		application.addTest("Triangle", selectTestFigure6OptionListener);
 	}
 
 	/**
